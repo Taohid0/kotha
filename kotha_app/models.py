@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 class Kotha_user(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User,on_delete=models.DO_NOTHING)
-    username= models.CharField(max_length=25)
+    username= models.CharField(max_length=10)
+    age = models.CharField(max_length=10)
     is_deleted= models.BooleanField(default=False)
 
 class Blocked_list(models.Model):
@@ -20,3 +21,7 @@ class Words(models.Model):
     message_to = models.ForeignKey(Kotha_user,on_delete=models.DO_NOTHING,related_name="message_to")
     word = models.TextField()
     date_time = models.DateTimeField(auto_now_add=True)
+
+class Logged_in_users(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=100)

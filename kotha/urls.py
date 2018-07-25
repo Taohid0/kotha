@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from kotha_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("sign_up/",views.sign_up),
+    path("login/",views.login),
+    path("send_message/",views.send_message),
+    path("my_all_messages/",views.my_all_message),
+    path("block/",views.block),
+    path("reply/",views.reply),
 ]
