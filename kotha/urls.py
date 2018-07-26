@@ -26,6 +26,8 @@ urlpatterns = [
     path("reply/",views.reply),
     path("sent_messages/",views.sent_messages),
     path("check_block/",views.check_block),
+    path("logout/",views.logout),
+
 
 
 ]

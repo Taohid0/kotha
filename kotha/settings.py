@@ -25,10 +25,17 @@ SECRET_KEY = '6om5hw4^(asx(kk=t$*4asqxz5jf!4e-!lwdosd=%#!176_%l0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["5445b8f5.ngrok.io", '127.0.0.1' ]
+ALLOWED_HOSTS = ["c52711d7.ngrok.io", '127.0.0.1' ]
 
 
 # Application definition
+
+PASSWORD_HASHERS = [
+'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+'django.contrib.auth.hashers.BCryptPasswordHasher',
+
+]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "rest_framework",
     "kotha_app",
+    "bcrypt",
 ]
 
 MIDDLEWARE = [
@@ -49,6 +57,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+
 ]
 
 ROOT_URLCONF = 'kotha.urls'
