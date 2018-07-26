@@ -15,8 +15,8 @@ def sign_up(request):
         age = request.data.get("age")
 
         all_user_objects = User.objects.all()
-        all_username = [i.username for i in all_user_objects]
-        if username in all_username:
+        all_username = [i.username.lower() for i in all_user_objects]
+        if username.lower() in all_username:
             return Response({"response_text":"duplicate"})
 
         else:
@@ -30,6 +30,7 @@ def sign_up(request):
             logged_in_object.save()
             return Response({"response_text":"successful"})
     except:
+        print(traceback.print_exc())
         return Response({"response_text":"error"})
 
 @api_view(["GET","POST"])
@@ -93,21 +94,57 @@ def my_all_message(request):
     return Response({"all_texts":all_texts[::-1]})
 
 @api_view(["GET","POST"])
-def block(request):
+def check_block(request):
+    username =request.data.get("username")
+    blocked_id = request.data.get("blocked_id")
+
     try:
-        username = request.data.get("username")
-        blocked_id = request.data.get("blocked_id")
-        print(blocked_id)
-        kotha_object = Kotha_user.objects.get(username=username)
-        blocked_object = Kotha_user.objects.get(id=blocked_id)
-
-        block = Blocked_list(block_to=blocked_object,blocked_by=kotha_object)
-        block.save()
-
-        return Response({"response_text":"successful"})
+        sender_object = Kotha_user.objects.get(username=username)
+        blocked_object = Blocked_list.objects.filter(block_to_id=blocked_id,blocked_by_id=sender_object.id)
+        if len(blocked_object)>0:
+            return Response({"response_text":"1"})
+        else:
+            return Response({"response_text": "0"})
     except:
-        print(traceback.print_exc())
-        return Response({"response_text":"error"})
+        return Response({"response_text": "0"})
+
+@api_view(["GET","POST"])
+def sent_messages(request):
+    username = request.data.get("username")
+    kotha_user = Kotha_user.objects.get(username=username)
+    all_messages = Words.objects.filter(message_by=kotha_user)
+    all_text = []
+    for i in all_messages:
+        receiver = Kotha_user.objects.get(id =i.message_to_id)
+        all_text.append((i.word,receiver.username))
+    return Response({"all_texts":all_text[::-1]})
+
+@api_view(["GET","POST"])
+def block(request):
+    task =request.data.get("task")
+    username = request.data.get("username")
+    blocked_id = request.data.get("blocked_id")
+    if task=="Block Sender":
+        try:
+            kotha_object = Kotha_user.objects.get(username=username)
+            blocked_object = Kotha_user.objects.get(id=blocked_id)
+
+            block = Blocked_list(block_to=blocked_object,blocked_by=kotha_object)
+            block.save()
+
+            return Response({"response_text":"successful"})
+        except:
+            print(traceback.print_exc())
+            return Response({"response_text":"error"})
+    else:
+        try:
+            blocked_object = Kotha_user.objects.get(id=blocked_id)
+            kotha_object = Kotha_user.objects.get(username=username)
+            all_objects = Blocked_list.objects.filter(block_to=blocked_object,blocked_by=kotha_object)
+            all_objects.delete()
+            return Response({"response_text":"successful"})
+        except:
+            return Response({"response_text":"error"})
 
 @api_view(["GET","POST"])
 def reply(request):

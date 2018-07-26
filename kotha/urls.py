@@ -24,4 +24,8 @@ urlpatterns = [
     path("my_all_messages/",views.my_all_message),
     path("block/",views.block),
     path("reply/",views.reply),
+    path("sent_messages/",views.sent_messages),
+    path("check_block/",views.check_block),
+
+
 ]

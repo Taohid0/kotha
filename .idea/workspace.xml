@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f796311-7c86-4680-a5b9-db792ad11fe7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/kotha_app/migrations/0002_kotha_user_age.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotha_app/migrations/0003_auto_20180725_2118.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotha_app/migrations/0004_auto_20180725_2119.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotha/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/kotha/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kotha/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/kotha/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotha_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/kotha_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kotha_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/kotha_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kotha/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+            <state>
+              <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
               <folding>
                 <element signature="e#629#661#0" expanded="true" />
               </folding>
@@ -57,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kotha_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+            <state relative-caret-position="179">
+              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -84,8 +78,8 @@
       <list>
         <option value="$PROJECT_DIR$/kotha_app/models.py" />
         <option value="$PROJECT_DIR$/kotha/settings.py" />
-        <option value="$PROJECT_DIR$/kotha_app/views.py" />
         <option value="$PROJECT_DIR$/kotha/urls.py" />
+        <option value="$PROJECT_DIR$/kotha_app/views.py" />
       </list>
     </option>
   </component>
@@ -95,7 +89,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-265" />
     <option name="y" value="35" />
     <option name="width" value="1415" />
@@ -194,10 +188,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="manage.py@kotha" order="7" sideWeight="0.49932885" visible="true" weight="0.26638177" />
+      <window_info active="true" anchor="bottom" id="manage.py@kotha" order="7" sideWeight="0.49932885" visible="true" weight="0.0028490028" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50067115" side_tool="true" weight="0.43304843" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -298,22 +291,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kotha_app/views.py">
+    <entry file="file://$PROJECT_DIR$/kotha/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+        <state>
+          <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#629#661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kotha/urls.py">
+    <entry file="file://$PROJECT_DIR$/kotha_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        <state relative-caret-position="179">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding>
-            <element signature="e#629#661#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
