@@ -27,6 +27,7 @@ urlpatterns = [
     path("sent_messages/",views.sent_messages),
     path("check_block/",views.check_block),
     path("logout/",views.logout),
+    path("all_users/",views.all_users),
 
 
 

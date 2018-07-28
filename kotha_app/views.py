@@ -31,7 +31,7 @@ def sign_up(request):
 
         else:
             print(password)
-            user = User(username=username,date_joined=timezone.now(),first_name=password)
+            user = User(username=username,date_joined=timezone.now())
             user.set_password(password)
             user.save()
 
@@ -104,8 +104,9 @@ def send_message(request):
 
                 if len(blocked_list)>0:
                     return Response({"response_text":"block"})
+                ip_address =request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR')).split(',')[-1].strip()
 
-                word = Words(message_by=sender,message_to=receiver,word=word)
+                word = Words(message_by=sender,message_to=receiver,word=word,ip_address=ip_address)
                 word.save()
                 return Response({"response_text":"successful"})
             except Exception as ex:
@@ -131,7 +132,6 @@ def my_all_message(request):
 
 @api_view(["GET","POST"])
 def check_block(request):
-
     username = request.data.get("username")
     try:
         print(username)
@@ -235,8 +235,9 @@ def reply(request):
 
                 if len(blocked_list)>0:
                     return Response({"response_text":"block"})
+                ip_address = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR')).split(',')[-1].strip()
 
-                word = Words(message_by=sender,message_to=receiver,word=word)
+                word = Words(message_by=sender,message_to=receiver,word=word, ip_address=ip_address)
                 word.save()
                 return Response({"response_text":"successful"})
             except Exception as ex:
@@ -258,4 +259,12 @@ def logout(request):
     except:
         return Response({"response_text": "failed"})
 
+@api_view(["GET","POST"])
+def all_users(request):
+    print(request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR')).split(',')[-1].strip())
+    all_users_objects = Kotha_user.objects.all()
+    all_username=[i.username for i in all_users_objects]
+    all_username.sort(key=lambda x:x.lower())
+    print(all_username)
+    return Response({"all_users":all_username})
 
