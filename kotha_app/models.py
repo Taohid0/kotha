@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Kotha_user(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User,on_delete=models.DO_NOTHING)
-    username= models.CharField(max_length=10)
+    username= models.CharField(max_length=100)
     age = models.CharField(max_length=10)
     is_deleted= models.BooleanField(default=False)
 
